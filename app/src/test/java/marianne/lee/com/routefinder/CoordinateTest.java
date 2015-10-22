@@ -83,4 +83,22 @@ public class CoordinateTest {
         assertEquals(1, rectsCoords[coordsLength - 2], DELTA);
         assertEquals(1, rectsCoords[coordsLength - 1], DELTA);
     }
+
+    @Test
+    public void inner_coords_divLvl20() {
+
+        int divLvl = 20;
+        InnerRects innerRects = new InnerRects(divLvl);
+        innerRects.calculateCoords();
+
+        float[] rectsCoords = innerRects.getInnerRectsCoords();
+        int coordsLength = rectsCoords.length;
+
+        assertEquals(divLvl, innerRects.getDivLvl());
+        assertEquals(22*22*2, coordsLength);
+        assertEquals(0.f, rectsCoords[0], DELTA);
+        assertEquals(0.f, rectsCoords[1], DELTA);
+        assertEquals(1, rectsCoords[coordsLength - 2], DELTA);
+        assertEquals(1, rectsCoords[coordsLength - 1], DELTA);
+    }
 }
